@@ -19,7 +19,28 @@ class StartScreen extends StatelessWidget {
             currentAccountPictureSize: Size(70.0, 70.0),
             accountName: Text('julesep3'),
             accountEmail: Text('julian@deerpeople.com'),
-          )
+          ),
+          ListTile(
+            leading: Icon(Icons.badge_outlined),
+            title: Text('Work'),
+            onTap: () {
+              print('+++++++++++++++++++ drawer: Work');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.email_outlined),
+            title: Text('Email'),
+            onTap: () {
+              print('+++++++++++++++++++ drawer: Email');
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.people_outline_sharp),
+            title: Text('Friends'),
+            onTap: () {
+              print('+++++++++++++++++++ drawer: Friends');
+            },
+          ),
         ],
       )),
       backgroundColor: Colors.blueGrey[60],
