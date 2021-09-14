@@ -11,6 +11,13 @@ class StartScreen extends StatefulWidget {
 }
 
 class _StartScreenState extends State<StartScreen> {
+  late _Controller con;
+  @override
+  void initState() {
+    super.initState();
+    con = _Controller(this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,8 +31,7 @@ class _StartScreenState extends State<StartScreen> {
               Container(
                 margin: EdgeInsets.all(10.0),
                 child: OutlinedButton(
-                  onPressed: () =>
-                      Navigator.pushNamed(context, Count.routeName),
+                  onPressed: con.navigateToCount,
                   child: Text('Count Page'),
                 ),
               )
@@ -34,5 +40,14 @@ class _StartScreenState extends State<StartScreen> {
         ),
       ),
     );
+  }
+}
+
+class _Controller {
+  late _StartScreenState state;
+  _Controller(this.state);
+
+  void navigateToCount() {
+    Navigator.pushNamed(state.context, Count.routeName);
   }
 }
