@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:scratch_project/viewscreen/count.dart';
 
 class StartScreen extends StatefulWidget {
   static const routeName = '/startScreen';
@@ -16,7 +17,22 @@ class _StartScreenState extends State<StartScreen> {
       appBar: AppBar(
         title: Text('StartScreen'),
       ),
-      body: Text('Body of the start screen'),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.all(10.0),
+                child: OutlinedButton(
+                  onPressed: () =>
+                      Navigator.pushNamed(context, Count.routeName),
+                  child: Text('Count Page'),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
