@@ -9,6 +9,13 @@ class Count extends StatefulWidget {
 }
 
 class _CountState extends State<Count> {
+  late _Controller con;
+  @override
+  void initState() {
+    super.initState();
+    con = _Controller(this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,4 +25,9 @@ class _CountState extends State<Count> {
       body: Text('count page'),
     );
   }
+}
+
+class _Controller {
+  late _CountState state;
+  _Controller(this.state);
 }
