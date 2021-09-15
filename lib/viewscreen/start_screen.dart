@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:scratch_project/model/item.dart';
 import 'package:scratch_project/viewscreen/count.dart';
+import 'package:scratch_project/viewscreen/itemlist_screen.dart';
 
 class StartScreen extends StatefulWidget {
   static const routeName = '/startScreen';
@@ -34,12 +36,24 @@ class _StartScreenState extends State<StartScreen> {
                   onPressed: con.navigateToCount,
                   child: Text('Count Page'),
                 ),
-              )
+              ),
+              Container(
+                margin: EdgeInsets.all(10.0),
+                child: OutlinedButton(
+                  onPressed: con.navigateToItemListScreen,
+                  child: Text('Item List Page'),
+                ),
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
   }
 }
 
@@ -48,6 +62,18 @@ class _Controller {
   _Controller(this.state);
 
   void navigateToCount() {
-    Navigator.pushNamed(state.context, Count.routeName);
+    Navigator.pushNamed(
+      state.context,
+      Count.routeName,
+    );
+  }
+
+  void navigateToItemListScreen() {
+    Navigator.pushNamed(
+      state.context,
+      ItemListScreen.routeName,
+      // passing itemList from Item to ItemListScreen
+      arguments: itemList,
+    );
   }
 }

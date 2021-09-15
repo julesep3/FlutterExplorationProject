@@ -25,6 +25,11 @@ class _CountState extends State<Count> {
       body: Text('count page'),
     );
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+  }
 }
 
 class _Controller {
