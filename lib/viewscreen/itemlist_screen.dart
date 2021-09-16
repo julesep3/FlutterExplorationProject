@@ -20,16 +20,28 @@ class _ItemListState extends State<ItemListScreen> {
       appBar: AppBar(
         title: Text('Item App bar'),
       ),
-      body: Column(
-        children: [
-          Row(
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
             children: [
-              Text('Item 1 name: ${widget.items[0].name} *** '),
-              Text('Item 1 color: ${widget.items[0].color} *** '),
-              Text('Item 1 price: ${widget.items[0].price} *** '),
+              for (var item in widget.items)
+                Card(
+                  margin: EdgeInsets.all(10.0),
+                  color: Colors.blueGrey[200],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Text('Item name: ${item.name}'),
+                        Text('Item color: ${item.color}'),
+                        Text('Item price: \$${item.price}'),
+                      ],
+                    ),
+                  ),
+                ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }
