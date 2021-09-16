@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scratch_project/model/item.dart';
 import 'package:scratch_project/viewscreen/count.dart';
+import 'package:scratch_project/viewscreen/error_screen.dart';
 import 'package:scratch_project/viewscreen/itemlist_screen.dart';
 import 'package:scratch_project/viewscreen/start_screen.dart';
 
@@ -19,7 +20,10 @@ class Explore extends StatelessWidget {
         Count.routeName: (context) => Count(),
         ItemListScreen.routeName: (context) {
           Object? args = ModalRoute.of(context)?.settings.arguments;
-          return ItemListScreen(args as List<Item>);
+          if (args != null)
+            return ItemListScreen(args as List<Item>);
+          else
+            return ErrorScreen('argument is null at ItemListScreen');
         },
       },
     );
